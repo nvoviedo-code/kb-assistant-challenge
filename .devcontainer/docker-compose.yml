@@ -1,0 +1,21 @@
+services:
+    kbac-devcontainer:
+        image: kbac-devcontainer
+        container_name: kbac-devcontainer
+        build:
+            context: ..
+            dockerfile: .devcontainer/Dockerfile
+        volumes:
+            - ..:/workspace:cached
+            - ../resources/:/resources
+        env_file:
+            - ../.env
+        # This keeps the devcontainer running.
+        entrypoint: ["tail", "-f", "/dev/null"]
+        networks:
+            - kbac
+
+networks:
+    kbac:
+        name: kbac
+        driver: bridge
