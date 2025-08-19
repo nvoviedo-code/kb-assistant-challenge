@@ -2,7 +2,7 @@ import logging
 from functools import lru_cache
 from fastapi import APIRouter, HTTPException, Depends
 
-from src.config.settings import settings, Settings
+from src.config.settings import settings
 from src.schemas.models import MatrixQuery
 
 from ..services.implementations.matrix_document_loader_service import MatrixDocumentLoaderService

@@ -1,5 +1,5 @@
 import pytest
-from unittest.mock import MagicMock, patch, AsyncMock
+from unittest.mock import MagicMock, AsyncMock
 from src.services.rag_service import RAGService
 from src.schemas.models import Document, QueryResult, RetrievalResult
 

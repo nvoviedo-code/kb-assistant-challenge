@@ -33,6 +33,33 @@ class MatrixResponse(BaseModel):
     reasoning: Optional[str] = Field(default=None, description="Explanation of reasoning process")
 
 
+class QueryDecomposition(BaseModel):
+    """Decomposition of a complex query into subqueries"""
+    subqueries: List[str] = Field(
+        description="List of subqueries that break down the complex query into manageable parts"
+    )
+    reasoning: str = Field(
+        description="Reasoning behind how the query was decomposed"
+    )
+    
+
+class SubQueryResponse(BaseModel):
+    """Response for a specific subquery"""
+    subquery: str = Field(description="The subquery being answered")
+    answer: str = Field(description="Answer to the subquery based on context")
+    confidence: float = Field(ge=0.0, le=1.0, description="Confidence level for this specific answer")
+    sources_used: List[str] = Field(description="Document IDs used for this subquery")
+
+
+class AdvancedMatrixResponse(BaseModel):
+    """Advanced response model with multi-step reasoning"""
+    final_answer: str = Field(description="The final comprehensive answer to the original query")
+    confidence: float = Field(ge=0.0, le=1.0, description="Overall confidence in the answer")
+    reasoning: str = Field(description="Detailed explanation of the reasoning process")
+    subquery_responses: List[SubQueryResponse] = Field(description="List of all subquery responses")
+    sources_used: List[str] = Field(description="All document IDs used as sources")
+
+
 class QueryResult(BaseModel):
     """Complete result from RAG query"""
     query: str

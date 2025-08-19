@@ -1,8 +1,6 @@
 import pytest
-from unittest.mock import MagicMock, patch, call, PropertyMock
-from qdrant_client.http.models import CollectionDescription, VectorParams, Distance
+from unittest.mock import MagicMock, patch
 import sys
-import uuid
 
 # Path patching to make the mocks work correctly
 with patch.dict(sys.modules, {
@@ -11,7 +9,7 @@ with patch.dict(sys.modules, {
     'langchain_qdrant': MagicMock()
 }):
     from src.services.implementations.qdrant_retriever_service import QdrantRetrieverService
-from src.schemas.models import Document, RetrievalResult
+from src.schemas.models import Document
 
 
 class TestQdrantRetrieverService:
