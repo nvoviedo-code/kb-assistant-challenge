@@ -22,7 +22,7 @@ A powerful Retrieval-Augmented Generation (RAG) API that can answer questions ab
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/kb-assistant-challenge.git
+   git clone https://github.com/nvoviedo-code/kb-assistant-challenge.git
    cd kb-assistant-challenge
    ```
 
@@ -35,6 +35,7 @@ A powerful Retrieval-Augmented Generation (RAG) API that can answer questions ab
 3. Install dependencies:
    ```bash
    pip install -r requirements.txt
+   pip install -e .
    ```
 
 4. Configure your OpenAI API key:

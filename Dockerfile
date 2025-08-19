@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Copiar archivos de requerimientos y instalar dependencias
-COPY requirements.txt .
+COPY prod-requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copiar el código fuente
